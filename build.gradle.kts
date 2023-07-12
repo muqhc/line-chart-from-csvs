@@ -1,11 +1,15 @@
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+
 // Versions
 val kotlinVersion: String = "1.8.20"
 val kvisionVersion: String = "6.6.0"
 
 plugins {
-    kotlin("plugin.serialization") version kotlinVersion
-    kotlin("js") version kotlinVersion
-    id("io.kvision") version kvisionVersion
+    val kotlinVersion_p: String = "1.8.20"
+    val kvisionVersion_p: String = "6.6.0"
+    kotlin("plugin.serialization") version kotlinVersion_p
+    kotlin("js") version kotlinVersion_p
+    id("io.kvision") version kvisionVersion_p
 }
 
 version = "1.0.0-SNAPSHOT"
@@ -20,7 +24,7 @@ repositories {
 val webDir = file("src/main/web")
 
 kotlin {
-    js {
+    js(IR) {
         browser {
             runTask {
                 outputFileName = "main.bundle.js"
