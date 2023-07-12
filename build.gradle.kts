@@ -1,6 +1,6 @@
 // Versions
-val kotlinVersion: String = 1.8.20
-val kvisionVersion: String = 6.6.0
+val kotlinVersion: String = "1.8.20"
+val kvisionVersion: String = "6.6.0"
 
 plugins {
     kotlin("plugin.serialization") version kotlinVersion
