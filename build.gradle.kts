@@ -52,8 +52,11 @@ kotlin {
     }
     sourceSets["main"].dependencies {
         implementation("io.kvision:kvision:$kvisionVersion")
+        implementation("io.kvision:kvision-chart:$kvisionVersion")
         implementation("io.kvision:kvision-bootstrap:$kvisionVersion")
         implementation("io.kvision:kvision-i18n:$kvisionVersion")
+
+        implementation("com.github.doyaaaaaken:kotlin-csv-js:1.9.1")
     }
     sourceSets["test"].dependencies {
         implementation(kotlin("test-js"))
