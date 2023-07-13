@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+    <p><input id="inp" type="file"></p>
+    <p><button onclick="a()">make chart</button></p>
+    <p><canvas id="ca"></canvas></p>
+    <script>
+        function a()
+        {
+        let file = inp.files[0];
+        const reader = new FileReader();
+        let t = "";
+        reader.addEventListener('load', (event) => {
+            t = event.target.result;
+        });
+        reader.readAsText(file);
+        function transpose(matrix) {
+            return matrix[0].map((col, i) => matrix.map(row => row[i]));
+        }
+        let tl = t.split("\n").map(l=>l.split(","));
+        let tlt = transpose(tl)
+        tlt.map(l=>l.remove(0))
+        function drawCh() {
+            const myChart = new Chart("myChart", {
+                type: "line",
+                data: {
+                    labels: tlt[0],
+                    datasets: [{
+                        data: tlt[1]
+                    }]
+                },
+                options: {}
+            })
+        }
+        drawCh()}
+    </script>
+</body>
