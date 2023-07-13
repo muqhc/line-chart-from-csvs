@@ -17,7 +17,7 @@ class App : Application() {
         val rootId = "root"
         val chartId = "myChart"
 
-        val chartColorList = listOf(
+        val chartColorList = (listOf(
             Col.BLUE,
             Col.RED,
             Col.BROWN,
@@ -27,7 +27,7 @@ class App : Application() {
             Col.PURPLE,
             Col.GOLD,
             Col.ORANGE
-        ).map {
+        ) + Col.values().toList()).map {
             Color.name(it)
         }
     }
