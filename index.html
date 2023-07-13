@@ -21,8 +21,7 @@
             return matrix[0].map((col, i) => matrix.map(row => row[i]));
         }
         let tl = t.split("\n").map(l=>l.split(","));
-        let tlt = transpose(tl)
-        tlt.map(l=>l.remove(0))
+        let tlt = transpose(tl).map(l=>l.slice(1))
         function drawCh() {
             const myChart = new Chart(ca, {
                 type: "line",
