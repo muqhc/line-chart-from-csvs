@@ -55,6 +55,14 @@ class App : Application() {
                         fr.readAsText(file)
                     }
                 }
+                button("make sample chart") {
+                    onClick {
+                        val text = sample
+                        chart?.let { it1 -> this@vPanel.remove(it1) }
+                        chart = null
+                        chart = this@vPanel.myChart(text)
+                    }
+                }
             }
         }
 //
