@@ -131,14 +131,14 @@ class App : Application() {
 
 
         return vPanel {
-            chart(
+            p{chart(
                 Configuration(
                     ChartType.LINE,
                     myDataSetsList,
                     labels
                 ),400,300
-            )
-            hPanel { pointBagMatrix.forEach { l ->
+            )}
+            p{hPanel { pointBagMatrix.forEach { l ->
                 vPanel {
                     l.forEach {
                         chart(
@@ -149,7 +149,7 @@ class App : Application() {
                         )
                     }
                 }
-            } }
+            } }}
         }
     }
 
