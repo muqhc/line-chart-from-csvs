@@ -114,18 +114,24 @@ class App : Application() {
                 }
             }
 
-            DataSets(
+            val originDataSet = DataSets(
                 data = pointList,
                 pointBorderColor = listOf(i,j).map { chartColorList[it] },
                 label = listOf(i,j).joinToString("-") {
                     dataBagTags[it]
                 },
-                pointBackgroundColor = listOf(i,j).map { chartColorList[it] }
+                pointBackgroundColor = listOf(i,j).map { chartColorList[it] },
+                xAxisID = dataBagTags[i],
+                yAxisID = dataBagTags[j]
             )
+            i to originDataSet
         }
+        val pointBagMatrix = pointBagList
+            .groupBy { it.first }
+            .map { it.value.map { it.second } }
 
 
-        return vPanel {
+        return hPanel {
             chart(
                 Configuration(
                     ChartType.LINE,
@@ -133,13 +139,17 @@ class App : Application() {
                     labels
                 )
             )
-            pointBagList.forEach {
-                chart(
-                    Configuration(
-                        ChartType.SCATTER,
-                        listOf(it)
-                    )
-                )
+            pointBagMatrix.forEach { l ->
+                vPanel {
+                    l.forEach {
+                        chart(
+                            Configuration(
+                                ChartType.SCATTER,
+                                listOf(it)
+                            ) ,400,300
+                        )
+                    }
+                }
             }
         }
     }
