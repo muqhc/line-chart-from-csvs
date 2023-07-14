@@ -8,8 +8,7 @@ import io.kvision.chart.js.ScatterController
 import io.kvision.chart.js.ScatterDataPoint
 import io.kvision.core.*
 import io.kvision.html.*
-import io.kvision.panel.root
-import io.kvision.panel.vPanel
+import io.kvision.panel.*
 import org.w3c.files.FileReader
 
 class App : Application() {
