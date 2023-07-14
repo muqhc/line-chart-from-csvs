@@ -39,7 +39,7 @@ class App : Application() {
     override fun start() {
         root(rootId) {
             vPanel {
-                input(InputType.FILE) {
+                hPanel{input(InputType.FILE) {
                     onChange {
                         val file = getElementD().files[0]
                         val fr = FileReader()
@@ -57,14 +57,14 @@ class App : Application() {
                         fr.readAsText(file)
                     }
                 }
-                button("make sample chart") {
+                button("Sample chart") {
                     onClick {
                         val text = sample
                         chart?.let { it1 -> this@vPanel.remove(it1) }
                         chart = null
                         chart = this@vPanel.myChart(text)
                     }
-                }
+                }}
             }
         }
 //
