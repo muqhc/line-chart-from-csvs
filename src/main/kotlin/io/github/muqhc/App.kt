@@ -130,26 +130,26 @@ class App : Application() {
             .map { it.value.map { it.second } }
 
 
-        return hPanel {
+        return vPanel {
             chart(
                 Configuration(
                     ChartType.LINE,
                     myDataSetsList,
                     labels
-                )
+                ),400,300
             )
-            pointBagMatrix.forEach { l ->
+            hPanel { pointBagMatrix.forEach { l ->
                 vPanel {
                     l.forEach {
                         chart(
                             Configuration(
                                 ChartType.SCATTER,
                                 listOf(it)
-                            ) ,400,300
+                            ),400,300
                         )
                     }
                 }
-            }
+            } }
         }
     }
 
